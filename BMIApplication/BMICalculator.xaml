@@ -25,13 +25,14 @@
                             <TapGestureRecognizer Tapped="OnMaleSelected"/>
                         </Grid.GestureRecognizers>
                         <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
-                            <Image Source="dotnet_bot.png" 
+                            <Image Source="male.png" 
                                    HeightRequest="50"
                                    WidthRequest="50"
                                    HorizontalOptions="Center"/>
                             <Label Text="Male" 
                                    HorizontalOptions="Center"
-                                   FontSize="16"/>
+                                   FontSize="16"
+                                   TextColor="Black"/>
                         </VerticalStackLayout>
                     </Grid>
                 </Frame>
@@ -48,13 +49,14 @@
                             <TapGestureRecognizer Tapped="OnFemaleSelected"/>
                         </Grid.GestureRecognizers>
                         <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
-                            <Image Source="dotnet_bot.png" 
+                            <Image Source="female.png" 
                                    HeightRequest="50"
                                    WidthRequest="50"
                                    HorizontalOptions="Center"/>
                             <Label Text="Female" 
                                    HorizontalOptions="Center"
-                                   FontSize="16"/>
+                                   FontSize="16"
+                                   TextColor="Black"/>
                         </VerticalStackLayout>
                     </Grid>
                 </Frame>
