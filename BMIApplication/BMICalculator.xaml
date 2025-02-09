@@ -4,108 +4,110 @@
              x:Class="BMIApplication.BMICalculator"
              BackgroundColor="White">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
-        <Label 
-            Text="BMI Calculator"
-            FontSize="32"
-            HorizontalOptions="Start"
-            Margin="0,10"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label 
+                Text="BMI Calculator"
+                FontSize="32"
+                HorizontalOptions="Start"
+                Margin="0,10"/>
 
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="20">
-            <Frame Grid.Column="0" 
-                   x:Name="MaleFrame" 
-                   BackgroundColor="White"
-                   BorderColor="#E0E0E0"
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="20">
+                <Frame Grid.Column="0" 
+                       x:Name="MaleFrame" 
+                       BackgroundColor="White"
+                       BorderColor="LightGray"
+                       CornerRadius="15"
+                       Padding="20"
+                       HasShadow="False">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMaleSelected"/>
+                        </Grid.GestureRecognizers>
+                        <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+                            <Image Source="dotnet_bot.png" 
+                                   HeightRequest="50"
+                                   WidthRequest="50"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Male" 
+                                   HorizontalOptions="Center"
+                                   FontSize="16"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Column="1" 
+                       x:Name="FemaleFrame" 
+                       BackgroundColor="White"
+                       BorderColor="LightGray"
+                       CornerRadius="15"
+                       Padding="20"
+                       HasShadow="False">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnFemaleSelected"/>
+                        </Grid.GestureRecognizers>
+                        <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+                            <Image Source="dotnet_bot.png" 
+                                   HeightRequest="50"
+                                   WidthRequest="50"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Female" 
+                                   HorizontalOptions="Center"
+                                   FontSize="16"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <Frame BorderColor="LightGray"
                    CornerRadius="15"
                    Padding="20"
                    HasShadow="False">
-                <Grid>
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnMaleSelected"/>
-                    </Grid.GestureRecognizers>
-                    <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
-                        <Image Source="male.png" 
-                               HeightRequest="70"
-                               WidthRequest="70"
-                               HorizontalOptions="Center"/>
-                        <Label Text="Male" 
-                               HorizontalOptions="Center"
-                               FontSize="16"/>
-                    </VerticalStackLayout>
-                </Grid>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Height (inches)"
+                           FontSize="16"/>
+                    <Slider 
+                        x:Name="HeightSlider"
+                        Maximum="100"
+                        Value="100"
+                        MinimumTrackColor="Red"
+                        MaximumTrackColor="LightGray"/>
+                    <Label 
+                        Text="{Binding Source={x:Reference HeightSlider}, Path=Value, StringFormat='{0:F0}'}"
+                        HorizontalOptions="Center"
+                        FontSize="16"/>
+                </VerticalStackLayout>
             </Frame>
 
-            <Frame Grid.Column="1" 
-                   x:Name="FemaleFrame" 
-                   BackgroundColor="White"
-                   BorderColor="#E0E0E0"
+            <Frame BorderColor="LightGray"
                    CornerRadius="15"
                    Padding="20"
                    HasShadow="False">
-                <Grid>
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnFemaleSelected"/>
-                    </Grid.GestureRecognizers>
-                    <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
-                        <Image Source="female.png" 
-                               HeightRequest="70"
-                               WidthRequest="70"
-                               HorizontalOptions="Center"/>
-                        <Label Text="Female" 
-                               HorizontalOptions="Center"
-                               FontSize="16"/>
-                    </VerticalStackLayout>
-                </Grid>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Weight (lbs)"
+                           FontSize="16"/>
+                    <Slider 
+                        x:Name="WeightSlider"
+                        Maximum="300"
+                        Value="50"
+                        MinimumTrackColor="Red"
+                        MaximumTrackColor="LightGray"/>
+                    <Label 
+                        Text="{Binding Source={x:Reference WeightSlider}, Path=Value, StringFormat='{0:F0}'}"
+                        HorizontalOptions="Center"
+                        FontSize="16"/>
+                </VerticalStackLayout>
             </Frame>
-        </Grid>
 
-        <Frame BorderColor="#E0E0E0"
-               CornerRadius="15"
-               Padding="20"
-               HasShadow="False">
-            <VerticalStackLayout Spacing="10">
-                <Label Text="Height (inches)"
-                       FontSize="16"/>
-                <Slider 
-                    x:Name="HeightSlider"
-                    Maximum="100"
-                    Value="100"
-                    MinimumTrackColor="Red"
-                    MaximumTrackColor="#E0E0E0"/>
-                <Label 
-                    Text="{Binding Source={x:Reference HeightSlider}, Path=Value, StringFormat='{0:F0}'}"
-                    HorizontalOptions="Center"
-                    FontSize="16"/>
-            </VerticalStackLayout>
-        </Frame>
-
-        <Frame BorderColor="#E0E0E0"
-               CornerRadius="15"
-               Padding="20"
-               HasShadow="False">
-            <VerticalStackLayout Spacing="10">
-                <Label Text="Weight (lbs)"
-                       FontSize="16"/>
-                <Slider 
-                    x:Name="WeightSlider"
-                    Maximum="300"
-                    Value="50"
-                    MinimumTrackColor="Red"
-                    MaximumTrackColor="#E0E0E0"/>
-                <Label 
-                    Text="{Binding Source={x:Reference WeightSlider}, Path=Value, StringFormat='{0:F0}'}"
-                    HorizontalOptions="Center"
-                    FontSize="16"/>
-            </VerticalStackLayout>
-        </Frame>
-
-        <Button 
-            Text="Calculate your BMI"
-            Clicked="OnCalculateClicked"
-            BackgroundColor="#1B1464"
-            TextColor="White"
-            CornerRadius="25"
-            HeightRequest="50"
-            Margin="0,10"/>
-    </VerticalStackLayout>
+            <Button 
+                Text="Calculate your BMI"
+                Clicked="OnCalculateClicked"
+                BackgroundColor="#1B1464"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                Margin="0,5,0,20"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
