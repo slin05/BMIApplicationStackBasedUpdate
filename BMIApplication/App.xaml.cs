@@ -5,8 +5,7 @@
         public App()
         {
             InitializeComponent();
-
-            MainPage = new BMICalculator();
+            MainPage = new NavigationPage(new UserInputPage());
         }
     }
 }

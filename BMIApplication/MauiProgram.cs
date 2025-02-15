@@ -15,10 +15,13 @@ namespace BMIApplication
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+            builder.Services.AddTransient<UserInputPage>();
+            builder.Services.AddTransient<BMIResultPage>();
+            builder.Services.AddTransient<RecommendationsPage>();
 
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
             return builder.Build();
         }
     }

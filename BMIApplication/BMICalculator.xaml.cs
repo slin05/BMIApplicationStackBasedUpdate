@@ -1,5 +1,5 @@
 using Microsoft.Maui.Controls;
-//Test
+
 namespace BMIApplication
 {
     public partial class BMICalculator : ContentPage
